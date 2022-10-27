@@ -1,0 +1,135 @@
+
+
+
+
+ .title_Choose_Plan p {
+    color: #f55f8d;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+
+ .title_Choose_Plan h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title_Choose_Plan {
+    margin-bottom: 40px;
+    margin-top: 100px;
+}
+
+ .item_Choose_Plan h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.item_Choose_Plan img {
+    width: 30%;
+    margin-left: 125px;
+
+}
+
+.item_Choose_Plan span {
+    font-size: 50px;
+    color: #f8ae56;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+ .item_Choose_Plan p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ .item1_Choose_Plan {
+    grid-area: a;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-color: #fff;
+    /* box-shadow: 1px 0 50px rgb(0 0 0 / 10%); */
+    padding-bottom: 40px;
+    padding-top: 25px;
+    transition: all .5s;
+    border-image: 100 round;
+}
+
+ .item1_Choose_Plan:hover {
+    border-image: url(../image/br.png) 2 round;
+}
+
+ .item2_Choose_Plan {
+    grid-area: b;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 1px 0 50px rgb(0 0 0 / 10%);
+    padding-bottom: 40px;
+    padding-top: 25px;
+    transition: all .5s;
+    border-image: 100 round;
+
+}
+
+.item1_Choose_Plan:hover {
+    border-image: url(/assets/images/br.png) 2 round;
+}
+
+.item3_Choose_Plan {
+    grid-area: c;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 1px 0 50px rgb(0 0 0 / 10%);
+    padding-bottom: 40px;
+    padding-top: 25px;
+    transition: all .5s;
+    border-image: 100 round;
+}
+
+.item3_Choose_Plan:hover {
+    border-image: url(../image/br.png) 2 round;
+}
+
+.item_Choose_Plan ul {
+    list-style: none;
+    font-size: 18px;
+    padding-left: 80px;
+    line-height: 40px;
+    margin-top: 10px;
+}
+
+.item_Choose_Plan ul i {
+    color: #f55f8d;
+    background-color: #feeff3;
+    margin-right: 15px;
+
+}
+
+.item1_Choose_Plan ul li span{
+    font-size: 18px;
+}
+.item_Choose_Plan ul li {}
+
+.item_Choose_Plan button {
+    padding: 20px 35px;
+    font-size: 15px;
+    font-weight: 500;
+    background-image: linear-gradient(to right, #f55f8d 0, #f8ae56 51%, #f55f8d 100%);
+    background-size: 200%;
+    border: 1px solid transparent;
+    transition: all .5s;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    outline: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-left: 175px;
+    margin-top: 15px;
+}
+
+/* end Choose_Plan  */
