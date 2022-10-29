@@ -430,7 +430,7 @@
                            
                         </div>                     
                     </div>
-                    <div id="popup7" class="popup-container popup-style-7">
+                    <div id="popup7" class="popup-container popup-style-7 popup_HS">
                         <div class="popup-content">
                           <a href="#" class="close">&times;</a>
                           <h2>Hãy cho EduWibu biết thêm về nhu cầu của bạn</h2>
@@ -441,29 +441,51 @@
                                     <label class="input-group-text" for="inputGroupSelect01">Số tiền / Buổi</label>
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected="">Chọn</option>
-                                    <option value="1">100000</option>
-                                    <option value="2">200000</option>
-                                    <option value="3">300000</option>
-                                    <option value="4">400000</option>
-                                    <option value="5">500000</option>
-                                    <option value="6">600000</option>
+                                  
+                                    <option style="color:rgb(33, 30, 30);" selected="">Chọn</option>
+                                    <option style="color:rgb(33, 30, 30);" value="1">100000</option>
+                                    <option style="color:rgb(33, 30, 30);" value="2">200000</option>
+                                    <option style="color:rgb(33, 30, 30);" value="3">300000</option>
+                                    <option style="color:rgb(33, 30, 30);" value="4">400000</option>
+                                    <option style="color:rgb(33, 30, 30);" value="5">500000</option>
+                                    <option style="color:rgb(33, 30, 30);" value="6">600000</option>
                                 </select>
                                 <div class="fee-unit position-absolute">VNĐ / buổi</div>
                             </div>
                           </div>
-                          <div class="Time_Start">
-                            <h3>Thời gian bắt đầu</h3>
-                            <input type ="time" style="width:60%;">
+                          <div class="Num_weekAnd_Time_Study">
+                            <div style="width: 50%;" class="Num_Week">
+                                <div class="form-group mb-4">
+                                    <label for="exampleFormControlSelect1">Số tuần học</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div style="    width: 50%;
+                              margin-top: -14px;" class="Time_Study">
+                                <h3>Ngày bắt đầu</h3>
+                                <input type ="date" style="width: 100%; padding-bottom: 10px; border: 1px solid #e0e0e0;">
+                              </div>
                           </div>
-                          <div class="Time_End">
-                            <h3>Thời gian kết thúc</h3>
-                            <input type ="time" style="width:60%;">
+                       
+                          <div class="Time_StartEnd">
+                            <div style="width:50%;" class="Time_Start">
+                                <h3>Thời gian bắt đầu</h3>
+                                <input type ="time" style="width:100%;border: 1px solid #e0e0e0;">
+                              </div>
+                              <div style="width:50%;" class="Time_End">
+                                <h3>Thời gian kết thúc</h3>
+                                <input type ="time" style="width:100%;border: 1px solid #e0e0e0;">
+                              </div>
                           </div>
-                          <div class="Time_Study">
-                            <h3>Ngày bắt đầu</h3>
-                            <input type ="date" style="width: 60%;">
-                          </div>
+                       
+                      
                           <div class="dateOfWeek">
                             <h3>Thứ trong tuần</h3>
                             <div class="form-check form-check-inline">

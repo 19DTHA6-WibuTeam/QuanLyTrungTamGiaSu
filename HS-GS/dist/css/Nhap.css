@@ -38,13 +38,14 @@ body {
 
 .card[data-state="#about"] {
   height: 470px;
+  width: 100%;
 }
 .card[data-state="#about"] .card-main {
   padding-top: 0;
 }
 
 .card[data-state="#contact"] {
-  height: 450px;
+  height: 460px;
 }
 
 .card[data-state="#experience"] {

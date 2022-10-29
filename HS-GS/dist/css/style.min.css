@@ -19527,6 +19527,29 @@ body {
 .popup-container h3{
   margin:10px;
 }
+.Time_StartEnd{
+    display:flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+.Num_weekAnd_Time_Study{
+    display:flex;
+    justify-content:space-between;
+    gap: 50px;
+}
+.Time_StartEnd h3{
+    font-size: 16px;
+}
+.Num_weekAnd_Time_Study h3{
+    font-size: 16px;
+}
+.dateOfWeek h3{
+    font-size: 16px;
+}
+.Note_popup h3{
+    font-size: 16px;
+}
+
 /*End popup styles*/
 
 /* Additional styles */
