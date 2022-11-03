@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/HS-GS/assets/images/favicon.png">
+    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
+    <!-- Custom CSS -->
+    <link href="/HS-GS/dist/css/style.min.css" rel="stylesheet">
+    <!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css" href="/HS-GS/assets/extra-libs/prism/prism.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Popup Xem Profile  -->
+
+    <link rel="stylesheet" href="/HS-GS/dist/css/Nhap.css">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a href="index.html">
+                            <b class="logo-icon">
+                                <!-- Dark Logo icon -->
+                                <img src="/HS-GS/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo icon -->
+                                <img src="/HS-GS/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            </b>
+                            <!--End Logo icon -->
+                            <!-- Logo text -->
+                            <span class="logo-text">
+                                <!-- dark Logo text -->
+                                <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
+                                Học Sinh
+                                <!-- Light Logo text -->
+                                <img src="/HS-GS/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            </span>
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+                        <!-- Notification -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
+                                id="bell" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span><i data-feather="bell" class="svg-icon"></i></span>
+                                <span class="b  adge badge-primary notify-no rounded-circle">5</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown">
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="message-center notifications position-relative">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <div class="btn btn-danger rounded-circle btn-circle"><i
+                                                        data-feather="airplay" class="text-white"></i></div>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Luanch Admin</h6>
+                                                    <span class="font-12 text-nowrap d-block text-muted">Just see
+                                                        the my new
+                                                        admin!</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <span class="btn btn-success text-white rounded-circle btn-circle"><i
+                                                        data-feather="calendar" class="text-white"></i></span>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Event today</h6>
+                                                    <span
+                                                        class="font-12 text-nowrap d-block text-muted text-truncate">Just
+                                                        a reminder that you have event</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <span class="btn btn-info rounded-circle btn-circle"><i
+                                                        data-feather="settings" class="text-white"></i></span>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Settings</h6>
+                                                    <span
+                                                        class="font-12 text-nowrap d-block text-muted text-truncate">You
+                                                        can customize this template
+                                                        as you want</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <span class="btn btn-primary rounded-circle btn-circle"><i
+                                                        data-feather="box" class="text-white"></i></span>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Pavan kumar</h6> <span
+                                                        class="font-12 text-nowrap d-block text-muted">Just
+                                                        see the my admin!</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link pt-3 text-center text-dark" href="javascript:void(0);">
+                                            <strong>Check all notifications</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- End Notification -->
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="settings" class="svg-icon"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <div class="customize-input">
+                                    <select
+                                        class="custom-select form-control bg-white custom-radius custom-shadow border-0">
+                                        <option selected>EN</option>
+                                        <option value="1">AB</option>
+                                        <option value="2">AK</option>
+                                        <option value="3">BE</option>
+                                    </select>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <form>
+                                    <div class="customize-input">
+                                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
+                                            type="search" placeholder="Search" aria-label="Search">
+                                        <i class="form-control-icon" data-feather="search"></i>
+                                    </div>
+                                </form>
+                            </a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="/HS-GS/assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
+                                    width="40">
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
+                                        class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
+                                        class="svg-icon"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Inbox</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
+                                        Profile</a></div>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="Profile_HS.html"
+                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                                    class="hide-menu">Trang cá nhân</span></a></li>
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link" href="ThanhToan_HS.html"
+                                aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
+                                    class="hide-menu">Thanh Toán
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="Chat_HS.html"
+                                aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
+                                    class="hide-menu">Chat</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="TKB_HS.html"
+                                aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
+                                    class="hide-menu">Lịch Học</span></a></li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
+
+
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="BangTin_HS.html"
+                                aria-expanded="false"><i data-feather="sidebar" class="feather-icon"></i><span
+                                    class="hide-menu">Bảng Tin
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="DangYeuCau_HS.html"
+                                aria-expanded="false"><i data-feather="sidebar" class="feather-icon"></i><span
+                                    class="hide-menu">Đăng Yêu Cầu
+                                </span></a>
+                        </li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="login_HS.html"
+                                aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
+                                    class="hide-menu">Login
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
+                                href="register_HS.html" aria-expanded="false"><i data-feather="lock"
+                                    class="feather-icon"></i><span class="hide-menu">Register
+                                </span></a>
+                        </li>
+
+
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="login_HS.html"
+                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
+                                    class="hide-menu">Logout</span></a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Cards</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-5 align-self-center">
+                        <div class="customize-input float-right">
+                            <select
+                                class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                <option selected>Aug 19</option>
+                                <option value="1">July 19</option>
+                                <option value="2">Jun 19</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- Team Start -->
+            <div class="container-xxl py-6">
+                <div class="container">
+                    <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                        <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">News Feed</div>
+                        <h2 class="mb-5">Gia Sư</h2>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item">
+                                <h5>Nguyen Van A</h5>
+
+                                <img class="img-fluid rounded-circle w-100 mb-4"
+                                    src="/HS-GS/assets/images/ProfileGiaSu/team-1.jpg" alt="">
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Ngữ Văn </b></span>
+                                </p>
+                                <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                                <!-- <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem Profile</button> -->
+                                <div class="popup-link">
+                                    <div class="nhap1">
+                                      <a href="#popup3" >Xem profile</a>
+                                    </div>
+                                 
+                                </div>
+                                <!--popup3-->
+                                <div id="popup3" class="popup-container popup-style-3">
+                                    <div class="popup-content">
+                                        <a href="#" class="close">&times;</a>
+                                        <div class="card" data-state="#about">
+                                          <div class="card-header">
+                                            <div class="card-cover" style="background-image: url('https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')"></div>
+                                            <img class="card-avatar" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="avatar" />
+                                            <h1 class="card-fullname" style="margin-top:25px;padding-bottom: 15px;">Bo</h1>
+                                            <h2 class="card-jobtitle">Chuyên Môn: Toán lớp 10</h2>
+                                          </div>
+                                          <div class="card-main">
+                                            <div class="card-section is-active" id="about">
+                                              <div class="card-content">
+                                                <div class="card-subtitle">ABOUT</div>
+                                                <p class="card-desc cardPopup" style="line-height:25px;" >Ha Ha Wibu chua' .
+                                                </p>
+                                              </div>
+                                              <div class="card-social">
+                                                <a href="#"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
+                                                  </svg></a>
+                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z" />
+                                                  </svg></a>
+                                                <a href="#"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M301 256c0 24.852-20.148 45-45 45s-45-20.148-45-45 20.148-45 45-45 45 20.148 45 45zm0 0" />
+                                                    <path d="M332 120H180c-33.086 0-60 26.914-60 60v152c0 33.086 26.914 60 60 60h152c33.086 0 60-26.914 60-60V180c0-33.086-26.914-60-60-60zm-76 211c-41.355 0-75-33.645-75-75s33.645-75 75-75 75 33.645 75 75-33.645 75-75 75zm86-146c-8.285 0-15-6.715-15-15s6.715-15 15-15 15 6.715 15 15-6.715 15-15 15zm0 0" />
+                                                    <path d="M377 0H135C60.562 0 0 60.563 0 135v242c0 74.438 60.563 135 135 135h242c74.438 0 135-60.563 135-135V135C512 60.562 451.437 0 377 0zm45 332c0 49.625-40.375 90-90 90H180c-49.625 0-90-40.375-90-90V180c0-49.625 40.375-90 90-90h152c49.625 0 90 40.375 90 90zm0 0" />
+                                                  </svg></a>
+                                                <a href="#"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 002.882 0z" />
+                                                  </svg></a>
+                                              </div>
+                                            </div>
+                                            <div class="card-section" id="experience">
+                                              <div class="card-content">
+                                                <div class="card-subtitle">WORK EXPERIENCE</div>
+                                                <div class="card-timeline">
+                                                  <div class="card-item" data-year="2014">
+                                                    <div class="card-item-title">Dạy toán tại <span>WibuEdu</span></div>
+                                                    <div class="card-item-desc">abcdef</div>
+                                                  </div>
+                                                  <div class="card-item" data-year="2016">
+                                                    <div class="card-item-title">Dạy toán tại <span>WibuEdu</span></div>
+                                                    <div class="card-item-desc">abcdef</div>
+                                                  </div>
+                                                  <div class="card-item" data-year="2018">
+                                                    <div class="card-item-title">Dạy toán tại <span>WibuEdu</span></div>
+                                                    <div class="card-item-desc">abcdef</div>
+                                                  </div>
+                                                  <div class="card-item" data-year="2020">
+                                                    <div class="card-item-title">Dạy toán tại <span>WibuEdu</span></div>
+                                                    <div class="card-item-desc">abcdef</div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="card-section" id="contact">
+                                              <div class="card-content">
+                                                <div class="card-subtitle">CONTACT</div>
+                                                <div class="card-contact-wrapper">
+                                                  <div class="card-contact">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                                      <circle cx="12" cy="10" r="3" />
+                                                    </svg>
+                                                  Nguyễn Thị Định, Q2, TP.HCM
+                                                  </div>
+                                                  <div class="card-contact">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                                    </svg>+0123456789
+                                                  </div>
+                                                  <div class="card-contact">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                      <path d="M22 6l-10 7L2 6" />
+                                                    </svg>
+                                                    Wibu@gmail.com
+                                                  </div>
+                                                  <button class="contact-me" style="margin-left: 0px; margin-bottom: 0px;">Đăng Ký</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="card-buttons">
+                                              <button data-section="#about" class="is-active">ABOUT</button>
+                                              <button data-section="#experience">EXPERIENCE</button>
+                                              <button data-section="#contact">CONTACT</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item">
+                                <h5>Nguyen Van B</h5>
+
+                                <img class="img-fluid rounded-circle w-100 mb-4"
+                                    src="/HS-GS/assets/images/ProfileGiaSu/team-2.jpg" alt="">
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Ngữ Văn </b></span>
+                                </p>
+                                <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                                <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem
+                                    Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item">
+                                <h5>Nguyen Van C</h5>
+
+                                <img class="img-fluid rounded-circle w-100 mb-4"
+                                    src="/HS-GS/assets/images/ProfileGiaSu/team-3.jpg" alt="">
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Ngữ Văn </b></span>
+                                </p>
+                                <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                                <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem
+                                    Profile</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item">
+                                <h5>Nguyen Van C</h5>
+
+                                <img class="img-fluid rounded-circle w-100 mb-4"
+                                    src="/HS-GS/assets/images/ProfileGiaSu/team-4.jpg"" alt="">
+                            <div class=" d-flex justify-content-center">
+                                <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Ngữ Văn </b></span></p>
+                            <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                            <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem
+                                Profile</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item">
+                            <h5>Nguyen Van D</h5>
+
+                            <img class="img-fluid rounded-circle w-100 mb-4"
+                                src="/HS-GS/assets/images/ProfileGiaSu/team-1.jpg"" alt="">
+                            <div class=" d-flex justify-content-center">
+                            <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Toán Học </b></span></p>
+                        <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                        <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem
+                            Profile</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <h5>Nguyen Van E</h5>
+
+                        <img class="img-fluid rounded-circle w-100 mb-4"
+                            src="/HS-GS/assets/images/ProfileGiaSu/team-2.jpg"" alt="">
+                            <div class=" d-flex justify-content-center">
+                        <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square text-primary bg-white m-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Toán Học </b></span></p>
+                    <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                    <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem
+                        Profile</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item">
+                    <h5>Nguyen Van G</h5>
+
+                    <img class="img-fluid rounded-circle w-100 mb-4" src="/HS-GS/assets/images/ProfileGiaSu/team-3.jpg"" alt="">
+                            <div class=" d-flex justify-content-center">
+                    <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Toán Học </b></span></p>
+                <p class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+                <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem Profile</button>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="team-item">
+                <h5>Nguyen Van H</h5>
+
+                <img class="img-fluid rounded-circle w-100 mb-4" src="/HS-GS/assets/images/ProfileGiaSu/team-4.jpg"" alt="">
+                            <div class=" d-flex justify-content-center">
+                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="mb-4">Chuyên Môn:<span style="color:rgb(49, 182, 49)"><b>Toán Học </b></span></p>
+            <p style="" class="mb-4">Vị Trí: Tp Hồ Chí Minh</p>
+            <button type="button" class="btn waves-effect waves-light btn-rounded btn-success">Xem Profile</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- End Row -->
+    <!-- Row -->
+
+
+
+    <!-- End Row -->
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center text-muted">
+        All Rights Reserved by Adminmart. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/HS-GS/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="/HS-GS/dist/js/app-style-switcher.js"></script>
+    <script src="/HS-GS/dist/js/feather.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/HS-GS/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/HS-GS/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <!-- themejs -->
+    <!--Menu sidebar -->
+    <script src="/HS-GS/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/HS-GS/dist/js/custom.min.js"></script>
+    <!-- This Page JS -->
+    <script src="/HS-GS/assets/extra-libs/prism/prism.js"></script>
+    <script>
+        const buttons = document.querySelectorAll(".card-buttons button");
+    const sections = document.querySelectorAll(".card-section");
+    const card = document.querySelector(".card");
+    
+    const handleButtonClick = (e) => {
+      const targetSection = e.target.getAttribute("data-section");
+      const section = document.querySelector(targetSection);
+      targetSection !== "#about"
+        ? card.classList.add("is-active")
+        : card.classList.remove("is-active");
+      card.setAttribute("data-state", targetSection);
+      sections.forEach((s) => s.classList.remove("is-active"));
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      e.target.classList.add("is-active");
+      section.classList.add("is-active");
+    };
+    
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", handleButtonClick);
+    });
+    
+      </script>
+</body>
+
+</html>
