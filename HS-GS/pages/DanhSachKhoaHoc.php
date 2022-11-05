@@ -1,6 +1,6 @@
 <?php
 $KhoaHoc = new KhoaHoc();
-$list = $KhoaHoc->getKhoaHocByMaNguoiDung(getSESSION('MaNguoiDung'));
+$list = $KhoaHoc->getKhoaHocByMaNguoiDung('MaHocSinh', getSESSION('MaNguoiDung'));
 $list = json_decode($list, true);
 ?>
 <div class="page-breadcrumb">
@@ -16,15 +16,6 @@ $list = json_decode($list, true);
                 </nav>
             </div>
         </div>
-        <div class="col-5 align-self-center">
-            <div class="customize-input float-right">
-                <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                    <option selected>Aug 19</option>
-                    <option value="1">July 19</option>
-                    <option value="2">Jun 19</option>
-                </select>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -37,7 +28,7 @@ $list = json_decode($list, true);
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
-                        <thead>
+                        <thead class="bg-success text-white">
                             <tr>
                                 <th scope="col">Mã khoá học</th>
                                 <th scope="col">Môn học</th>
@@ -48,6 +39,8 @@ $list = json_decode($list, true);
                                 <th scope="col">Số tuần</th>
                                 <th scope="col">Số tiền 1 buổi</th>
                                 <th scope="col">Ngày đăng ký</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Khác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,6 +56,18 @@ $list = json_decode($list, true);
                                         <td>' . $v['SoTuan'] . '</td>
                                         <td>' . formatPrice($v['SoTien']) . ' đ</td>
                                         <td>' . $v['NgayDangKy'] . '</td>
+                                        <td>' . TinhTrangKhoaHoc($v['TinhTrang']) . '</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm</button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="ThoiKhoaBieu.html">Xem thời khoá biểu</a>
+                                                    <a class="dropdown-item" href="' . ($v['TinhTrang'] >= 2 ? 'javascript:" onclick="showNotify(\'no-edit\')' : 'ChinhSuaKhoaHoc.html?MaKhoaHoc=' . $v['MaKhoaHoc']) . '">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" href="javascript:" onclick="' . ($v['TinhTrang'] >= 2 ? 'showNotify(\'no-delete\')' : 'XoaKhoaHoc(\'' . $v['MaKhoaHoc'] . '\')') . '">Xoá</a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>';
                             }
                             ?>

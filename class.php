@@ -150,13 +150,23 @@ class KhoaHoc
     return $this->curl->get(API_URL . '/KhoaHoc/' . $MaKhoaHoc);
   }
 
-  public function getKhoaHocByMaNguoiDung($MaHocSinh)
+  public function getKhoaHocByMaNguoiDung($k, $v)
   {
-    return $this->curl->get(API_URL . '/KhoaHoc?k=MaHocSinh&v=' . $MaHocSinh);
+    return $this->curl->get(API_URL . '/KhoaHoc?k=' . $k . '&v=' . $v);
   }
 
   public function postKhoaHoc($body)
   {
     return $this->curl->post(API_URL . '/KhoaHoc', $body);
+  }
+
+  public function getKhoaHocTKB($k, $v)
+  {
+    return $this->curl->get(API_URL . '/ThoiKhoaBieu/KhoaHoc?k=' . $k . '&v=' . $v);
+  }
+
+  public function getThoiKhoaBieu($k, $v)
+  {
+    return $this->curl->get(API_URL . '/ThoiKhoaBieu?k=' . $k . '&v=' . $v);
   }
 }

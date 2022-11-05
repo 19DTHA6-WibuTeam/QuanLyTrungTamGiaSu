@@ -149,3 +149,19 @@ function curl($url)
   curl_close($ch);
   return $page;
 }
+
+function TinhTrangKhoaHoc($a)
+{
+  switch ($a) {
+    case 0:
+      return 'Đang chờ duyệt';
+    case 1:
+      return 'Đang tìm gia sư';
+    case 2:
+      return 'Đang tiến hành khoá học';
+    case 3:
+      return 'Đã hoàn thành khoá học';
+    default:
+      return '';
+  }
+}
