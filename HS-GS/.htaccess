@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteRule ^login.html$ login.php [L]
+RewriteRule ^logout.html$ logout.php [L]
+RewriteRule ^TrangChu.html$ index.php?page=TrangChu [L]
+RewriteRule ^DangKyKhoaHoc.html$ index.php?page=DangKyKhoaHoc [L]
+RewriteRule ^DanhSachKhoaHoc.html$ index.php?page=DanhSachKhoaHoc [L]
+#RewriteRule ^edit-product.html$ product.php?act=edit [QSA]
+#RewriteRule ^invoices.html$ invoices.php [L]
+#RewriteRule ^invoice.html$ invoice.php [QSA]
+#RewriteRule ^users.html$ users.php [L]
+#RewriteRule ^user.html$ user.php [QSA]
