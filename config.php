@@ -3,7 +3,7 @@
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 session_start();
 
-define('API_URL', 'https://ttgs-api.phatnef.me');
+define('API_URL', 'http://localhost:3004');
 define('ADMIN_PASSWORD', 'Wibu@2022'); // Mật khẩu đăng nhập Admin
 define('DATA_PER_PAGE', 40); // Số dữ liệu hiển thị trên mỗi trang
 // define('RECAPTCHA_SITE_KEY', '6LeShkgfAAAAAD17sscX7kYWeY4yrHcbNR__Smsv');

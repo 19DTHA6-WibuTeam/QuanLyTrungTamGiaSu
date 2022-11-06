@@ -55,6 +55,16 @@ class cURL
     return $return;
   }
 
+  function contenttype($data)
+  {
+    foreach ($this->headers as $k => $v) {
+      if (strpos($v, 'Content-type:') !== false) {
+        $this->headers[$k] = 'Content-type: ' . $data;
+        break;
+      }
+    }
+  }
+
   function get($url)
   {
     $process = curl_init($url);
@@ -75,7 +85,7 @@ class cURL
     return $return;
   }
 
-  function post($url, $data)
+  function post($url, $data, $method = null)
   {
     $process = curl_init($url);
     curl_setopt($process, CURLOPT_HTTPHEADER, $this->headers);
@@ -84,10 +94,13 @@ class cURL
     if ($this->cookies == TRUE) curl_setopt($process, CURLOPT_COOKIEFILE, $this->cookie_file);
     if ($this->cookies == TRUE) curl_setopt($process, CURLOPT_COOKIEJAR, $this->cookie_file);
     curl_setopt($process, CURLOPT_ENCODING, $this->compression);
-    curl_setopt($process, CURLOPT_TIMEOUT, 30);
+    curl_setopt($process, CURLOPT_TIMEOUT, 0);
     curl_setopt($process, CURLOPT_POSTFIELDS, $data);
+    if ($method) curl_setopt($process, CURLOPT_CUSTOMREQUEST, $method);
+    else curl_setopt($process, CURLOPT_POST, 1);
+    curl_setopt($process, CURLOPT_MAXREDIRS, 10);
+    curl_setopt($process, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($process, CURLOPT_POST, 1);
     curl_setopt($process, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($process, CURLOPT_CAINFO, NULL);
     curl_setopt($process, CURLOPT_CAPATH, NULL);
@@ -100,6 +113,44 @@ class cURL
   {
     echo "<center><div style='width:500px;border: 3px solid #FFEEFF; padding: 3px; background-color: #FFDDFF;font-family: verdana; font-size: 10px'><b>cURL Error</b><br>$error</div></center>";
     die;
+  }
+}
+
+class Admin
+{
+  var $curl;
+
+  function __construct()
+  {
+    $this->curl = new cURL(false);
+    if (getSESSION('admin_token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('admin_token')]);
+  }
+
+  public function login($passwordAdmin, $body)
+  {
+    if ($passwordAdmin == ADMIN_PASSWORD)
+      return $this->curl->post(API_URL . '/NguoiDung/login', $body);
+    else return json_encode(array('success' => false, 'message' => 'Mật khẩu Admin không chính xác!'));
+  }
+
+  public function startSession($data)
+  {
+    $_SESSION['admin'] = true;
+    $_SESSION['admin_token'] = $data['token'];
+  }
+
+  public static function endSession()
+  {
+    unset($_SESSION['admin']);
+    unset($_SESSION['admin_token']);
+  }
+
+  public function checkSession()
+  {
+    $a = $this->curl->get(API_URL . '/NguoiDung/check-session');
+    $a = json_decode($a, true);
+    if ($a['success'] == true) return true;
+    else false;
   }
 }
 
@@ -116,17 +167,62 @@ class NguoiDung
   public function startSession($data)
   {
     $_SESSION['MaNguoiDung'] = $data['MaNguoiDung'];
+    $_SESSION['HoTen'] = $data['HoTen'];
+    $_SESSION['Avatar'] = $data['Avatar'];
+    $_SESSION['LaGiaSu'] = $data['LaGiaSu'];
     $_SESSION['token'] = $data['token'];
   }
 
-  public function destroySession()
+  public function updateSession($data)
   {
-    session_destroy();
+    if ($data['HoTen']) $_SESSION['HoTen'] = $data['HoTen'];
+    if ($data['Avatar']) $_SESSION['Avatar'] = $data['Avatar'];
+    if ($data['LaGiaSu']) $_SESSION['LaGiaSu'] = $data['LaGiaSu'];
+    if ($data['token']) $_SESSION['token'] = $data['token'];
+  }
+
+  public function endSession()
+  {
+    // session_destroy();
+    unset($_SESSION['MaNguoiDung']);
+    unset($_SESSION['HoTen']);
+    unset($_SESSION['Avatar']);
+    unset($_SESSION['LaGiaSu']);
+    unset($_SESSION['token']);
+  }
+
+  public function checkSession()
+  {
+    $a = $this->curl->get(API_URL . '/NguoiDung/check-session');
+    $a = json_decode($a, true);
+    if ($a['success'] == true) return true;
+    else false;
   }
 
   public function login($body)
   {
     return $this->curl->post(API_URL . '/NguoiDung/login', $body);
+  }
+
+  public function register($body)
+  {
+    return $this->curl->post(API_URL . '/NguoiDung/register', $body);
+  }
+
+  public function getProfile($MaNguoiDung)
+  {
+    return $this->curl->get(API_URL . '/NguoiDung/' . $MaNguoiDung);
+  }
+
+  public function updateProfile($MaNguoiDung, $body)
+  {
+    $this->curl->contenttype('multipart/form-data');
+    return $this->curl->post(API_URL . '/NguoiDung/' . $MaNguoiDung, $body, 'PATCH');
+  }
+
+  public function DoiMatKhau($body)
+  {
+    return $this->curl->post(API_URL . '/NguoiDung/DoiMatKhau', $body);
   }
 }
 
@@ -150,7 +246,7 @@ class KhoaHoc
     return $this->curl->get(API_URL . '/KhoaHoc/' . $MaKhoaHoc);
   }
 
-  public function getKhoaHocByMaNguoiDung($k, $v)
+  public function getKhoaHocByKeyValue($k, $v)
   {
     return $this->curl->get(API_URL . '/KhoaHoc?k=' . $k . '&v=' . $v);
   }
@@ -158,6 +254,11 @@ class KhoaHoc
   public function postKhoaHoc($body)
   {
     return $this->curl->post(API_URL . '/KhoaHoc', $body);
+  }
+
+  public function updateKhoaHoc($MaKhoaHoc, $body)
+  {
+    return $this->curl->post(API_URL . '/KhoaHoc/' . $MaKhoaHoc, $body, 'PATCH');
   }
 
   public function getKhoaHocTKB($k, $v)

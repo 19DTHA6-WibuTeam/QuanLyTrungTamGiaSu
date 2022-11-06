@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteRule ^login.html$ login.php [L]
+RewriteRule ^logout.html$ logout.php [L]
+RewriteRule ^TrangChu.html$ index.php?page=TrangChu [L]
+RewriteRule ^ChinhSuaKhoaHoc.html$ index.php?page=DangKyKhoaHoc&act=edit [QSA]
+RewriteRule ^DanhSachKhoaHoc.html$ index.php?page=DanhSachKhoaHoc [L]
+RewriteRule ^DanhSachHocSinh.html$ index.php?page=DanhSachHocSinh [L]
+RewriteRule ^DanhSachGiaSu.html$ index.php?page=DanhSachGiaSu [L]
+RewriteRule ^ChiTietHocSinh.html$ index.php?page=ChiTietHocSinh [L]
+RewriteRule ^ChiTietGiaSu.html$ index.php?page=ChiTietGiaSu [L]
+RewriteRule ^HoaDon.html$ index.php?page=HoaDon [L]
+RewriteRule ^ThoiKhoaBieu.html$ index.php?page=ThoiKhoaBieu [L]
+RewriteRule ^TrangCaNhan.html$ index.php?page=TrangCaNhan [L]
