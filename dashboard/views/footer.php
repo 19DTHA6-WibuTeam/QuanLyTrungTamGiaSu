@@ -55,6 +55,9 @@
       case 'no-delete':
         $.notify("Khoá học đang tiến hành. Không thể xoá!", "error");
         return;
+      case 'no-tutor':
+        $.notify("Khoá học chưa có người dạy!", "error");
+        return;
       default:
         return;
     }
@@ -78,6 +81,30 @@
     } else {
       $('#MKH_delete').val(MaKhoaHoc);
       $('#confirm-delete-modal').modal('show');
+    }
+  }
+
+  function DangKyDay(MaKhoaHoc, cfm = false) {
+    if (cfm == true) {
+      if (!MaKhoaHoc) MaKhoaHoc = $('#MKH_dangky').val();
+      $.ajax({
+        type: "POST",
+        headers: {
+          'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+        },
+        url: "<?php echo API_URL; ?>/KhoaHoc/GiangDay/" + MaKhoaHoc,
+        success: function(result) {
+          if (result.success) {
+            $.notify(result.message, "success");
+            setTimeout(function() {
+              window.location.reload();
+            }, 3000);
+          } else $.notify("Không thể đăng ký dạy khoá học!", "error");
+        }
+      });
+    } else {
+      $('#MKH_dangky').val(MaKhoaHoc);
+      $('#confirm-dangky-modal').modal('show');
     }
   }
 </script>

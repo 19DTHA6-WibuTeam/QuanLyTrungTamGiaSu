@@ -7,6 +7,7 @@ $msg = 'Hehehe.';
 if ($_POST) {
     $NguoiDung = new NguoiDung();
     $data = $NguoiDung->login(http_build_query($_POST));
+    var_dump($data);
     $data = json_decode($data, true);
     if ($data['success'] == false) $msg = $data['message'];
     else {

@@ -62,6 +62,7 @@ $list = json_decode($list, true);
                                                 <button type="button" class="btn btn-info dropdown-toggle"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm</button>
                                                 <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="' . ($v['TinhTrang'] < 2 ? 'javascript:" onclick="showNotify(\'no-tutor\')' : 'TrangCaNhan.html?MaNguoiDung=' . $v['MaGiaSu']) . '">Xem gia sư</a>
                                                     <a class="dropdown-item" href="' . ($v['TinhTrang'] >= 2 ? 'javascript:" onclick="showNotify(\'no-edit\')' : 'ChinhSuaKhoaHoc.html?MaKhoaHoc=' . $v['MaKhoaHoc']) . '">Chỉnh sửa</a>
                                                     <a class="dropdown-item" href="javascript:" onclick="' . ($v['TinhTrang'] >= 2 ? 'showNotify(\'no-delete\')' : 'XoaKhoaHoc(\'' . $v['MaKhoaHoc'] . '\')') . '">Xoá</a>
                                                 </div>
