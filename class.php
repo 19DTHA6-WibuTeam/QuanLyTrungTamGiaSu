@@ -136,12 +136,14 @@ class Admin
   public function startSession($data)
   {
     $_SESSION['admin'] = true;
+    $_SESSION['admin_MaNguoiDung'] = $data['MaNguoiDung'];
     $_SESSION['admin_token'] = $data['token'];
   }
 
   public static function endSession()
   {
     unset($_SESSION['admin']);
+    unset($_SESSION['admin_MaNguoiDung']);
     unset($_SESSION['admin_token']);
   }
 
@@ -224,6 +226,28 @@ class NguoiDung
   {
     return $this->curl->post(API_URL . '/NguoiDung/DoiMatKhau', $body);
   }
+
+  public function getChuyenMonByUserId($MaNguoiDung)
+  {
+    return $this->curl->get(API_URL . '/ChuyenMon/NguoiDung/' . $MaNguoiDung);
+  }
+
+  public function getChuyenMonById($MaChuyenMon)
+  {
+    return $this->curl->get(API_URL . '/ChuyenMon/' . $MaChuyenMon);
+  }
+
+  public function postChuyenMon($body)
+  {
+    $this->curl->contenttype('multipart/form-data');
+    return $this->curl->post(API_URL . '/ChuyenMon', $body, 'POST');
+  }
+
+  public function updateChuyenMon($MaChuyenMon, $body)
+  {
+    $this->curl->contenttype('multipart/form-data');
+    return $this->curl->post(API_URL . '/ChuyenMon/' . $MaChuyenMon, $body, 'PATCH');
+  }
 }
 
 class KhoaHoc
@@ -244,6 +268,11 @@ class KhoaHoc
   public function getKhoaHocById($MaKhoaHoc)
   {
     return $this->curl->get(API_URL . '/KhoaHoc/' . $MaKhoaHoc);
+  }
+
+  public function getKhoaHocAll()
+  {
+    return $this->curl->get(API_URL . '/KhoaHoc');
   }
 
   public function getKhoaHocByKeyValue($k, $v)
@@ -269,5 +298,26 @@ class KhoaHoc
   public function getThoiKhoaBieu($k, $v)
   {
     return $this->curl->get(API_URL . '/ThoiKhoaBieu?k=' . $k . '&v=' . $v);
+  }
+}
+
+class HoaDon
+{
+  var $curl;
+
+  function __construct()
+  {
+    $this->curl = new cURL(false);
+    if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
+  }
+
+  public function getById($MaHoaDon)
+  {
+    return $this->curl->get(API_URL . '/HoaDon/' . $MaHoaDon);
+  }
+
+  public function getByUserId($MaNguoiDung)
+  {
+    return $this->curl->get(API_URL . '/HoaDon/NguoiDung/' . $MaNguoiDung);
   }
 }

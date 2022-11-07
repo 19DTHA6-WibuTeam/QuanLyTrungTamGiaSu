@@ -33,9 +33,57 @@ $profile = $NguoiDung->getProfile($MaNguoiDung);
 $profile = json_decode($profile, true);
 if (getGET('MaNguoiDung') && $profile['success'] == false) echo '<script>window.location.href = "TrangCaNhan.html"</script>';
 $profile = $profile['data'];
-['HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap] = $profile;
+['HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap, 'LaGiaSu' => $LaGiaSu] = $profile;
 if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
 ?>
+<style>
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+    }
+
+    ul.timeline:before {
+        content: ' ';
+        background: #d4d9df;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    ul.timeline>li {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+
+    ul.timeline>li:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid #22c0e8;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        z-index: 400;
+    }
+</style>
+<div id="xem-anh-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="fullWidthModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="fullWidthModalLabel">Title.</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <img src="" id="xem-anh-src" style="max-width: 100%;" />
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <?php if ($msg) { ?>
         <div class="row">
@@ -58,8 +106,9 @@ if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
                     <div class="row">
                         <div class="col-md-3 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <img class="rounded-circle mt-5" width="150px" src="<?php echo $Avatar; ?>" />
+                                <img class="rounded-circle mt-5 square-img" width="69%" src="<?php echo $Avatar ? $Avatar : 'assets/images/users/profile.jpg'; ?>" />
                                 <br />
+                                <?php echo $LaGiaSu == 1 ? '<span class="badge badge-primary">Gia sư</span>' : '<span class="badge badge-success">Học sinh</span>'; ?>
                                 <span class="font-weight-bold"><?php echo $HoTen; ?></span>
                                 <span class="text-black-50"><?php echo $Email; ?></span>
                             </div>
@@ -79,7 +128,7 @@ if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
                                         </div>
                                         <div class="col-md-6">
                                             <label class="mr-sm-2" for="GioiTinh">Giới tính</label>
-                                            <select class="custom-select mr-sm-2" id="GioiTinh" name="GioiTinh">
+                                            <select class="custom-select mr-sm-2" id="GioiTinh" name="GioiTinh" disabled>
                                                 <option value="0"><?php echo $GioiTinh == 1 ? 'Nam' : 'Nữ'; ?></option>
                                             </select>
                                         </div>
@@ -111,24 +160,31 @@ if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="p-3 py-5">
-                                    <div class="d-flex justify-content-between align-items-center experience">
-                                        <span style="font-size: 18px;font-weight: bold;">Thay đổi mật khẩu</span>
+                                <?php
+                                if ($LaGiaSu) {
+                                    $ChuyenMon = $NguoiDung->getChuyenMonByUserId(getGET('MaNguoiDung'));
+                                    $cm = json_decode($ChuyenMon, true);
+                                ?>
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center experience">
+                                            <span style="font-size: 18px;font-weight: bold;">Chuyên môn</span>
+                                        </div>
+                                        <br>
+                                        <div class="col-md-12">
+                                            <ul class="timeline">
+                                                <?php
+                                                foreach ($cm['data'] as $k => $v) {
+                                                    echo '<li>
+                                                            <a href="javascript:void()">' . $v['TenMonHoc'] . '</a>
+                                                            ' . ($v['HinhAnh'] ? '<a href="javascript:" onclick="XemAnh(\'' . $v['HinhAnh'] . '\')" class="float-right">Xem ảnh</a>' : '') . '
+                                                            <p>' . $v['NoiDung'] . '</p>
+                                                        </li>';
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <label class="labels">Mật khẩu cũ</label>
-                                        <input type="password" class="form-control" placeholder="Mật khẩu cũ" name="MatKhauCu" required />
-                                    </div> <br>
-                                    <div class="col-md-12">
-                                        <label class="labels">Mật khẩu mới</label>
-                                        <input type="password" class="form-control" placeholder="Mật khẩu mới" name="MatKhauMoi" required />
-                                    </div> <br>
-                                    <div class="col-md-12">
-                                        <label class="labels">Nhập lại mật khẩu mới</label>
-                                        <input type="password" class="form-control" placeholder="Mật khẩu mới" name="XacNhanMatKhauMoi" required />
-                                    </div>
-                                </div>
+                                <?php } ?>
                             </div>
                         <?php } else { ?>
                             <div class="col-md-5 border-right">

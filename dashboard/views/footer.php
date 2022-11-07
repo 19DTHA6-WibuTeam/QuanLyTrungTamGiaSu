@@ -58,14 +58,23 @@
       case 'no-tutor':
         $.notify("Khoá học chưa có người dạy!", "error");
         return;
+      case 'no-image':
+        $.notify("Không có ảnh để xem!", "error");
+        return;
       default:
         return;
     }
   }
 
+  function XemAnh(src) {
+    $("#xem-anh-src").attr("src", src);
+    $('#xem-anh-modal').modal('show');
+  }
+
   function XoaKhoaHoc(MaKhoaHoc, cfm = false) {
     if (cfm == true) {
       if (!MaKhoaHoc) MaKhoaHoc = $('#MKH_delete').val();
+      $.notify("Đang xoá...", "warning");
       $.ajax({
         type: "DELETE",
         headers: {
@@ -74,7 +83,10 @@
         url: "<?php echo API_URL; ?>/KhoaHoc/" + MaKhoaHoc,
         success: function(result) {
           if (result.success) {
-            window.location.reload();
+            $.notify(result.message, "success");
+            setTimeout(function() {
+              window.location.reload();
+            }, 5000);
           } else $.notify("Không thể xoá khoá học!", "error");
         }
       });
@@ -84,9 +96,35 @@
     }
   }
 
+  function XoaChuyenMon(MaChuyenMon, cfm = false) {
+    if (cfm == true) {
+      if (!MaChuyenMon) MaChuyenMon = $('#MCM_delete').val();
+      $.notify("Đang xoá...", "warning");
+      $.ajax({
+        type: "DELETE",
+        headers: {
+          'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+        },
+        url: "<?php echo API_URL; ?>/ChuyenMon/" + MaChuyenMon,
+        success: function(result) {
+          if (result.success) {
+            $.notify(result.message, "success");
+            setTimeout(function() {
+              window.location.reload();
+            }, 5000);
+          } else $.notify("Không thể xoá chuyên môn!", "error");
+        }
+      });
+    } else {
+      $('#MCM_delete').val(MaChuyenMon);
+      $('#confirm-delete-modal').modal('show');
+    }
+  }
+
   function DangKyDay(MaKhoaHoc, cfm = false) {
     if (cfm == true) {
       if (!MaKhoaHoc) MaKhoaHoc = $('#MKH_dangky').val();
+      $.notify("Đang đăng ký...", "warning");
       $.ajax({
         type: "POST",
         headers: {
@@ -98,7 +136,7 @@
             $.notify(result.message, "success");
             setTimeout(function() {
               window.location.reload();
-            }, 3000);
+            }, 5000);
           } else $.notify("Không thể đăng ký dạy khoá học!", "error");
         }
       });

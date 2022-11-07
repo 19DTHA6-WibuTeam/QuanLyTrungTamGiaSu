@@ -1,3 +1,9 @@
+<?php
+$KhoaHoc = new KhoaHoc();
+$list = $KhoaHoc->getKhoaHocAll();
+$list = json_decode($list, true);
+// $list = $list['data'];
+?>
 <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Start Page Content -->
@@ -51,63 +57,53 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Họ Tên</th>
-                                    <th>Địa Chỉ</th>
+                                    <th>Họ tên</th>
+                                    <th>Địa chỉ</th>
                                     <th>SĐT</th>
-                                    <th>Tuần Bắt Đầu</th>
-                                    <th>Số Tuần</th>
-                                    <th>Số Tiền</th>
-                                    <th>Ghi Chú</th>
-                                    <th>Tình Trạng</th>
+                                    <th>Ngày đăng ký</th>
+                                    <th>Số tuần</th>
+                                    <th>Số tiền</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Lịch</th>
+                                    <th>Ghi chú</th>
+                                    <th>Tình trạng</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>TH01</td>
-                                    <td><a href="./detail-student.html" class="font-weight-medium link">Ngô Thế Bách</a></td>
-                                    <td>Quận 9, TP.HCM</td>
-                                    <td>0358125655</td>
-                                    <td>04/11/2022</td>
-                                    <td>08</td>
-                                    <td>5.000.000đ</td>
-                                    <td>Yêu cầu giáo viên nữ</td>
-                                    <td><a href="./receipt.html" class="btn waves-effect waves-light btn-rounded btn-outline-danger">Hủy lớp</a></td>
-                                </tr>
-                                <tr>
-                                    <td>TH02</td>
-                                    <td><a href="./detail-student.html" class="font-weight-medium link">Nguyễn Thiên Minh</a></td>
-                                    <td>Quận 9, TP.HCM</td>
-                                    <td>0358125655</td>
-                                    <td>04/11/2022</td>
-                                    <td>08</td>
-                                    <td>5.000.000đ</td>
-                                    <td>Yêu cầu giáo viên nữ</td>
-                                    <td><a href="./receipt.html" class="btn waves-effect waves-light btn-rounded btn-outline-success">Đã thanh toán</a></td>
-                                </tr>
-                                <tr>
-                                    <td>TH03</td>
-                                    <td><a href="./detail-student.html" class="font-weight-medium link">Nguyễn Văn Thành Phát</a></td>
-                                    <td>Quận 9, TP.HCM</td>
-                                    <td>0358125655</td>
-                                    <td>04/11/2022</td>
-                                    <td>08</td>
-                                    <td>5.000.000đ</td>
-                                    <td>Yêu cầu giáo viên nữ</td>
-                                    <td><a href="./receipt.html" class="btn waves-effect waves-light btn-rounded btn-outline-warning">Chờ thanh toán</a></td>
-                                </tr>
-                                <tr>
-                                    <td>TH04</td>
-                                    <td><a href="./detail-student.html" class="font-weight-medium link">Lý Quốc Thịnh</a></td>
-                                    <td>Quận 9, TP.HCM</td>
-                                    <td>0358125655</td>
-                                    <td>04/11/2022</td>
-                                    <td>08</td>
-                                    <td>5.000.000đ</td>
-                                    <td>Yêu cầu giáo viên nữ</td>
-                                    <td><a href="./receipt.html" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Đã Có GV</a></td>
-                                </tr>
+                                <?php
+                                foreach ($list['data'] as $k => $v) {
+                                    $ThoiKhoaBieu_TomTat = $v['ThoiKhoaBieu_TomTat'];
+                                    $TongTien = $v['SoTien'] * $v['SoTuan'] * count(explode(',', $ThoiKhoaBieu_TomTat['MaThu']));
+                                    echo '<tr>
+                                            <td>' . $v['MaKhoaHoc'] . '</td>
+                                            <td><a href="./detail-student.html" class="font-weight-medium link">' . $v['HoTen'] . '</a></td>
+                                            <td>' . $v['DiaChi'] . '</td>
+                                            <td>' . $v['SDT'] . '</td>
+                                            <td>' . $v['NgayDangKy'] . '</td>
+                                            <td>' . $v['SoTuan'] . '</td>
+                                            <td>' . formatPrice($v['SoTien']) . ' đ</td>
+                                            <td>' . formatPrice($TongTien) . ' đ</td>
+                                            <td>' . str_replace(':00', '', $ThoiKhoaBieu_TomTat['GioBatDau']) . ' - ' . str_replace(':00', '', $ThoiKhoaBieu_TomTat['GioKetThuc']) . '<br/>' . $ThoiKhoaBieu_TomTat['TenThu'] . '</td>
+                                            <td>' . $v['GhiChu'] . '</td>
+                                            <td>' . TinhTrangKhoaHoc($v['TinhTrang']) . '</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm</button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="HoaDon.html?MaKhoaHoc=' . $v['MaKhoaHoc'] . '">Xem hoá đơn</a>
+                                                        <a class="dropdown-item" href="javascript:" onclick="">Huỷ lịch dạy</a>
+                                                        <a class="dropdown-item" href="javascript:" onclick="">Duyệt</a>
+                                                        <a class="dropdown-item" href="javascript:" onclick="">Xoá</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>';
+                                }
+                                ?>
                             </tbody>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th>ID</th>
                                     <th>Họ Tên</th>
@@ -119,7 +115,7 @@
                                     <th>Ghi Chú</th>
                                     <th>Tình Trạng</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                         </table>
                         <ul class="pagination float-right">
                             <li class="page-item disabled">

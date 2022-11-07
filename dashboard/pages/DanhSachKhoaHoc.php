@@ -41,6 +41,7 @@ $list = json_decode($list, true);
                                 <th scope="col">Số tiền 1 buổi</th>
                                 <th scope="col">Ngày đăng</th>
                                 <th scope="col">Lịch dạy</th>
+                                <th scope="col">Ghi chú</th>
                                 <th scope="col">Khác</th>
                             </tr>
                         </thead>
@@ -57,6 +58,7 @@ $list = json_decode($list, true);
                                         <td>' . formatPrice($v['SoTien']) . ' đ</td>
                                         <td>' . $v['NgayDangKy'] . '</td>
                                         <td>' . str_replace(':00', '', $v['ThoiKhoaBieu_TomTat']['GioBatDau']) . ' - ' . str_replace(':00', '', $v['ThoiKhoaBieu_TomTat']['GioBatDau']) . '<br/>' . $v['ThoiKhoaBieu_TomTat']['TenThu'] . '</td>
+                                        <td>' . $v['GhiChu'] . '</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info dropdown-toggle"

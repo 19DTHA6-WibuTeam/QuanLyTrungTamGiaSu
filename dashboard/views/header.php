@@ -2,27 +2,32 @@
 <html dir="ltr" lang="vi">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png" />
   <title>Trang thông tin</title>
   <!-- Custom CSS -->
-  <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-  <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+  <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet" />
+  <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet" />
   <link href="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
   <!-- Custom CSS -->
-  <link href="dist/css/style.min.css" rel="stylesheet">
+  <link href="dist/css/style.min.css" rel="stylesheet" />
+  <link href="dist/css/another.css" rel="stylesheet" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css' />
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -52,7 +57,7 @@
           <!-- ============================================================== -->
           <div class="navbar-brand">
             <!-- Logo icon -->
-            <a href="index.html">
+            <a href="./">
               <b class="logo-icon">
                 <!-- Dark Logo icon -->
                 <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -102,7 +107,7 @@
             </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="<?php echo getSESSION('Avatar') ? getSESSION('Avatar') : 'assets/images/users/profile-pic.jpg'; ?>" alt="user" class="rounded-circle" width="40">
+                <img src="<?php echo getSESSION('Avatar') ? getSESSION('Avatar') : 'assets/images/users/profile.jpg'; ?>" alt="user" class="rounded-circle square-img" width="40">
                 <span class="ml-2 d-none d-lg-inline-block"><span>Xin chào,</span> <span class="text-dark"><?php echo getSESSION('HoTen'); ?></span> <i data-feather="chevron-down" class="svg-icon"></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -148,6 +153,10 @@
             <li class="list-divider"></li>
             <li class="nav-small-cap"><span class="hide-menu">Người dùng</span></li>
             <li class="sidebar-item"> <a class="sidebar-link" href="TrangCaNhan.html" aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Trang cá nhân</span></a></li>
+            <?php if (getSESSION('LaGiaSu')) { ?>
+              <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachChuyenMon.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chuyên môn</span></a></li>
+              <li class="sidebar-item"> <a class="sidebar-link" href="ChuyenMon.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Thêm chuyên môn</span></a></li>
+            <?php } ?>
             <li class="list-divider"></li>
             <li class="sidebar-item"> <a class="sidebar-link" href="logout.html" aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Đăng xuất</span></a></li>
           </ul>

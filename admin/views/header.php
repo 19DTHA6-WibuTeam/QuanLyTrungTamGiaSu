@@ -43,7 +43,7 @@
           <!-- ============================================================== -->
           <div class="navbar-brand">
             <!-- Logo icon -->
-            <a href="index.html">
+            <a href="./">
               <b class="logo-icon">
                 <!-- Dark Logo icon -->
                 <img src="../dashboard/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -86,27 +86,14 @@
           <!-- ============================================================== -->
           <ul class="navbar-nav float-right">
             <!-- ============================================================== -->
-            <!-- Search -->
-            <!-- ============================================================== -->
-            <li class="nav-item d-none d-md-block">
-              <a class="nav-link" href="javascript:void(0)">
-                <form>
-                  <div class="customize-input">
-                    <input class="form-control custom-shadow custom-radius border-0 bg-white" type="search" placeholder="Search" aria-label="Search">
-                    <i class="form-control-icon" data-feather="search"></i>
-                  </div>
-                </form>
-              </a>
-            </li>
-            <!-- ============================================================== -->
             <!-- User profile and search -->
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="../dashboard/assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle" width="40">
+                <img src="../dashboard/assets/images/users/profile.jpg" alt="user" class="rounded-circle" width="40" />
               </a>
               <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                <a class="dropdown-item" href="./login.html"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>Logout</a>
+                <a class="dropdown-item" href="./logout.html"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>Đăng xuất</a>
               </div>
             </li>
             <!-- ============================================================== -->
@@ -130,16 +117,11 @@
           <ul id="sidebarnav">
             <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="TrangChu.html" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Thống kê</span></a></li>
             <li class="list-divider"></li>
-
-            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachKhoaHoc.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Khóa học</span></a>
-            </li>
-            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachHocSinh.html" aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Danh sách Học sinh
-                </span></a>
-            </li>
-            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachGiaSu.html" aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Danh sách Gia sư</span></a>
-            </li>
+            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachKhoaHoc.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Khóa học</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachHocSinh.html" aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Danh sách Học sinh</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachGiaSu.html" aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span class="hide-menu">Danh sách Gia sư</span></a></li>
             <li class="list-divider"></li>
-            <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="./login.html" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="logout.html" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Đăng xuất</span></a></li>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
