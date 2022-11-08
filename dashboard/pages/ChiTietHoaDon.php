@@ -62,7 +62,7 @@ $cthd = $cthd['data'];
     </div>
     <div class="row my-3">
         <div class="col-lg-6">
-            <p class="mb-0">ĐẾN</p>
+            <p class="mb-0"><?php echo getSESSION('LaGiaSu') == 0 ? 'ĐẾN' : 'TỪ'; ?></p>
             <h5 class="mb-0"><b>Trung tâm gia sư WibuEdu</b></h5>
             <p class="mb-0"></p>
             <p class="mb-0">028.0000.1111</p>
@@ -121,16 +121,18 @@ $cthd = $cthd['data'];
                         <td><?php echo $cthd['SoTuan']; ?> đ</td>
                         <td><?php echo formatPrice($cthd['SoTien']); ?> đ</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td colspan="4"></td>
                         <td><b>Tạm tính</b></td>
                         <td><b><?php echo formatPrice($cthd['SoTien']); ?> đ</b></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4"></td>
-                        <td><b>TAX VAT 3%</b></td>
-                        <td><b>16200</b></td>
-                    </tr>
+                    </tr> -->
+                    <?php if (getSESSION('LaGiaSu') == 1) { ?>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><b>PHÍ 20%</b></td>
+                            <td><b>(đã trừ)</b></td>
+                        </tr>
+                    <?php } ?>
                     <tr style="background: #E6E4E7; color: #0099D5;">
                         <td colspan="4"></td>
                         <td><b>TỔNG CỘNG</b></td>
@@ -152,7 +154,9 @@ $cthd = $cthd['data'];
         <div class="col-lg-6">
             <h5 class="ml-5">Ghi chú</h5>
             <p class="ml-5"><?php echo $cthd['GhiChu']; ?></p>
-            <p class="ml-5">Để thanh toán khoá học, vui lòng chuyển khoản đến ngân hàng ABC, số tài khoản XXX với nội dung: TTKH #<?php echo $cthd['MaKhoaHoc']; ?></p>
+            <?php if (getSESSION('LaGiaSu') == 0) { ?>
+                <p class="ml-5">Để thanh toán khoá học, vui lòng chuyển khoản đến ngân hàng ABC, số tài khoản XXX với nội dung: TTKH #<?php echo $cthd['MaKhoaHoc']; ?></p>
+            <?php } ?>
         </div>
         <div class="col-lg-3"></div>
         <div class="col-lg-3 text-center">

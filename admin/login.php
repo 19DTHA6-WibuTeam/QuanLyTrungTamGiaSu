@@ -6,7 +6,7 @@ if (getSESSION('admin_token')) header('Location: TrangChu.html');
 $msg = '';
 if ($_POST) {
     $Admin = new Admin();
-    $data = $Admin->login(getPOST('MatKhauAdmin'), http_build_query($_POST));
+    $data = $Admin->login(getPOST('bypass'), http_build_query($_POST));
     $data = json_decode($data, true);
     if ($data['success'] == false) $msg = $data['message'];
     else {
@@ -73,8 +73,8 @@ if ($_POST) {
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="text-dark" for="MatKhauAdmin">Mật khẩu Admin</label>
-                                        <input class="form-control" id="MatKhauAdmin" type="password" name="MatKhauAdmin" required />
+                                        <label class="text-dark" for="bypass">Mật khẩu Admin</label>
+                                        <input class="form-control" id="bypass" type="password" name="bypass" required />
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">

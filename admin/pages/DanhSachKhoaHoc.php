@@ -4,11 +4,52 @@ $list = $KhoaHoc->getKhoaHocAll();
 $list = json_decode($list, true);
 // $list = $list['data'];
 ?>
+<div id="confirm-change-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="MKH_change">Bạn có muốn <span id="status-change"></span> khoá học này?</label>
+                    <input class="form-control" type="hidden" id="MKH_change" value="" />
+                </div>
+                <div class=" form-group text-center">
+                    <button class="btn btn-primary" onclick="ThayDoiTinhTrangKhoaHoc(0, null, true)">Thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="confirm-delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="MKH_delete">Bạn có muốn xoá khoá học này?</label>
+                    <input class="form-control" type="hidden" id="MKH_delete" value="" />
+                </div>
+                <div class=" form-group text-center">
+                    <button class="btn btn-primary" onclick="XoaKhoaHoc(0, true)">Xoá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="confirm-cancel-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="MKH_cancel">Bạn có muốn huỷ lịch dạy này? Chỉ nên huỷ khoá học chưa dạy buổi nào.</label>
+                    <input class="form-control" type="hidden" id="MKH_cancel" value="" />
+                </div>
+                <div class=" form-group text-center">
+                    <button class="btn btn-primary" onclick="HuyLichDay(0, true)">Huỷ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <!-- basic table -->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -92,10 +133,10 @@ $list = json_decode($list, true);
                                                     <button type="button" class="btn btn-info dropdown-toggle"
                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm</button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="HoaDon.html?MaKhoaHoc=' . $v['MaKhoaHoc'] . '">Xem hoá đơn</a>
-                                                        <a class="dropdown-item" href="javascript:" onclick="">Huỷ lịch dạy</a>
-                                                        <a class="dropdown-item" href="javascript:" onclick="">Duyệt</a>
-                                                        <a class="dropdown-item" href="javascript:" onclick="">Xoá</a>
+                                                        ' . ($v['TinhTrang'] >= 2 ? '<a class="dropdown-item" href="HoaDon.html?MaKhoaHoc=' . $v['MaKhoaHoc'] . '">Xem hoá đơn</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 2 ? '<a class="dropdown-item" href="javascript:" onclick="HuyLichDay(\'' . $v['MaKhoaHoc'] . '\')">Huỷ lịch dạy</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 1 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'bỏ duyệt\')">Bỏ duyệt</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 0 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'duyệt\')">Duyệt</a><a class="dropdown-item" href="javascript:" onclick="XoaKhoaHoc(\'' . $v['MaKhoaHoc'] . '\')">Xoá</a>' : '') . '
                                                     </div>
                                                 </div>
                                             </td>

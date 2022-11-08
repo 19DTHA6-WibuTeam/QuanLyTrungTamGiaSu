@@ -163,7 +163,8 @@ class NguoiDung
   function __construct()
   {
     $this->curl = new cURL(false);
-    if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
+    if (getSESSION('admin_token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('admin_token')]);
+    else if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
   }
 
   public function startSession($data)
@@ -209,6 +210,11 @@ class NguoiDung
   public function register($body)
   {
     return $this->curl->post(API_URL . '/NguoiDung/register', $body);
+  }
+
+  public function getList($LaGiaSu = null)
+  {
+    return $this->curl->get(API_URL . '/NguoiDung' . ($LaGiaSu != null ? '?LaGiaSu=' . $LaGiaSu : ''));
   }
 
   public function getProfile($MaNguoiDung)
@@ -257,7 +263,8 @@ class KhoaHoc
   function __construct()
   {
     $this->curl = new cURL(false);
-    if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
+    if (getSESSION('admin_token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('admin_token')]);
+    else if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
   }
 
   public function getThongTinDangKy()
@@ -308,7 +315,8 @@ class HoaDon
   function __construct()
   {
     $this->curl = new cURL(false);
-    if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
+    if (getSESSION('admin_token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('admin_token')]);
+    else if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
   }
 
   public function getById($MaHoaDon)
@@ -319,5 +327,32 @@ class HoaDon
   public function getByUserId($MaNguoiDung)
   {
     return $this->curl->get(API_URL . '/HoaDon/NguoiDung/' . $MaNguoiDung);
+  }
+
+  public function getByMKH($MaKhoaHoc)
+  {
+    return $this->curl->get(API_URL . '/HoaDon/KhoaHoc/' . $MaKhoaHoc);
+  }
+}
+
+class ThongKe
+{
+  var $curl;
+
+  function __construct()
+  {
+    $this->curl = new cURL(false);
+    if (getSESSION('admin_token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('admin_token')]);
+    else if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
+  }
+
+  public function getSummary()
+  {
+    return $this->curl->get(API_URL . '/ThongKe');
+  }
+
+  public function getByUser($NguoiDung, $MaNguoiDung)
+  {
+    return $this->curl->get(API_URL . '/ThongKe/' . $NguoiDung . '/' . $MaNguoiDung);
   }
 }

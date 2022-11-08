@@ -44,9 +44,11 @@
       trigger: 'hover'
     });
   });
-  // if (window.history.replaceState) {
-  //   window.history.replaceState(null, null, window.location.href);
-  // }
+
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+
   function showNotify(key) {
     switch (key) {
       case 'no-edit':
