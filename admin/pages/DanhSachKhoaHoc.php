@@ -118,7 +118,7 @@ $list = json_decode($list, true);
                                     $TongTien = $v['SoTien'] * $v['SoTuan'] * count(explode(',', $ThoiKhoaBieu_TomTat['MaThu']));
                                     echo '<tr>
                                             <td>' . $v['MaKhoaHoc'] . '</td>
-                                            <td><a href="./detail-student.html" class="font-weight-medium link">' . $v['HoTen'] . '</a></td>
+                                            <td><a href="ChiTietNguoiDung.html?MaNguoiDung=' . $v['MaKhoaHoc'] . '" class="font-weight-medium link">' . $v['HoTen'] . '</a></td>
                                             <td>' . $v['DiaChi'] . '</td>
                                             <td>' . $v['SDT'] . '</td>
                                             <td>' . $v['NgayDangKy'] . '</td>
