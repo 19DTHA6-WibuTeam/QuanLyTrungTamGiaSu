@@ -1,8 +1,26 @@
 <?php
 $HoaDon = new HoaDon();
-$cthd = $HoaDon->getById(getGET('MaHoaDon'));
+
+$vnp = [];
+$isVnp = false;
+if ($_GET) {
+    foreach ($_GET as $k => $v) {
+        // var_dump($k, $v);
+        $isVnp = true;
+        if (strpos($k, 'vnp_') !== false) $vnp[$k] = $v;
+    }
+}
+if ($isVnp) {
+    $XacNhanThanhToan =  $HoaDon->XacNhanThanhToan(getGET('MaHoaDon'), http_build_query($vnp));
+    var_dump($XacNhanThanhToan);
+}
+// var_dump(http_build_query($vnp));
+
+$cthd = $HoaDon->getById(getGET('MaHoaDon'), getUrl());
 $cthd = json_decode($cthd, true);
 $cthd = $cthd['data'];
+
+if ($cthd['MaNguoiDung'] != getSESSION('MaNguoiDung')) echo '<script>window.location.href = "HoaDon.html"</script>';
 ?>
 <style>
     .signature {
@@ -118,7 +136,7 @@ $cthd = $cthd['data'];
                         <td><?php echo $cthd['TenMonHoc']; ?></td>
                         <td><?php echo formatPrice($cthd['SoTienMotBuoi']); ?> đ</td>
                         <td><?php echo $cthd['SoBuoi']; ?></td>
-                        <td><?php echo $cthd['SoTuan']; ?> đ</td>
+                        <td><?php echo $cthd['SoTuan']; ?></td>
                         <td><?php echo formatPrice($cthd['SoTien']); ?> đ</td>
                     </tr>
                     <!-- <tr>
@@ -154,8 +172,9 @@ $cthd = $cthd['data'];
         <div class="col-lg-6">
             <h5 class="ml-5">Ghi chú</h5>
             <p class="ml-5"><?php echo $cthd['GhiChu']; ?></p>
-            <?php if (getSESSION('LaGiaSu') == 0) { ?>
+            <?php if (getSESSION('LaGiaSu') == 0 && $cthd['TinhTrang'] == 0) { ?>
                 <p class="ml-5">Để thanh toán khoá học, vui lòng chuyển khoản đến ngân hàng ABC, số tài khoản XXX với nội dung: TTKH #<?php echo $cthd['MaKhoaHoc']; ?></p>
+                <p class="ml-5">hoặc ấn <a target="_blank" href="<?php echo $cthd['LinkThanhToan']; ?>">vào đây</a> để thanh toán trực tuyến với VN-PAY.</p>
             <?php } ?>
         </div>
         <div class="col-lg-3"></div>

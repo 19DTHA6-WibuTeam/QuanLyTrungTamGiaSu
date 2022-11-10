@@ -319,9 +319,9 @@ class HoaDon
     else if (getSESSION('token')) $this->curl->setheader(['Authorization: Bearer ' . getSESSION('token')]);
   }
 
-  public function getById($MaHoaDon)
+  public function getById($MaHoaDon, $returnUrl = '')
   {
-    return $this->curl->get(API_URL . '/HoaDon/' . $MaHoaDon);
+    return $this->curl->get(API_URL . '/HoaDon/' . $MaHoaDon . '?returnUrl=' . $returnUrl);
   }
 
   public function getByUserId($MaNguoiDung)
@@ -332,6 +332,11 @@ class HoaDon
   public function getByMKH($MaKhoaHoc)
   {
     return $this->curl->get(API_URL . '/HoaDon/KhoaHoc/' . $MaKhoaHoc);
+  }
+
+  public function XacNhanThanhToan($MaKhoaHoc, $query)
+  {
+    return $this->curl->get(API_URL . '/HoaDon/XacNhanThanhToan/' . $MaKhoaHoc . '?' . $query);
   }
 }
 

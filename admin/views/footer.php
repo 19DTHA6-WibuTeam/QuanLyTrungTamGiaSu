@@ -188,6 +188,31 @@
        $('#confirm-delete-modal').modal('show');
      }
    }
+
+   function XacNhanThanhToan(MaHoaDon, cfm = false) {
+     if (cfm == true) {
+       if (!MaHoaDon) MaHoaDon = $('#MHD_payment').val();
+       $.notify("Đang xác nhận...", "warning");
+       $.ajax({
+         type: "POST",
+         headers: {
+           'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
+         },
+         url: "<?php echo API_URL; ?>/HoaDon/ThanhToan/" + MaHoaDon + '?TinhTrang=1',
+         success: function(result) {
+           if (result.success) {
+             $.notify(result.message, "success");
+             setTimeout(function() {
+               window.location.reload();
+             }, 5000);
+           } else $.notify("Không thể xác nhận thanh toán!", "error");
+         }
+       });
+     } else {
+       $('#MHD_payment').val(MaHoaDon);
+       $('#confirm-payment-modal').modal('show');
+     }
+   }
  </script>
  </body>
 

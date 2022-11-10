@@ -6,6 +6,21 @@ $cthd = json_decode($cthd, true);
 $hd1 = $cthd['data'][0];
 $hd2 = $cthd['data'][1];
 ?>
+<div id="confirm-payment-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="MHD_payment">Bạn có muốn xác nhận thanh toán không? Sau khi xác nhận không thể thay đổi.</label>
+                    <input class="form-control" type="hidden" id="MHD_payment" value="" />
+                </div>
+                <div class=" form-group text-center">
+                    <button class="btn btn-primary" onclick="XacNhanThanhToan(0, true)">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <div class="card-group">
         <div class="col-md-6">
@@ -30,8 +45,13 @@ $hd2 = $cthd['data'][1];
                     <hr width="90%" color="gray" align="center">
                     <h4 class=" card-title"><?php echo $hd1['GhiChu']; ?></h4>
                     <p class="card-text">Số tiền: <?php echo formatPrice($hd1['SoTien']); ?> đ</p>
-                    <button type="button" class="btn waves-effect waves-light btn-danger">HỦY</button>
-                    <button type="button" class="btn waves-effect waves-light btn-success">Đã thanh toán</button>
+                    <?php
+                    if ($hd1['NgayThanhToan']) {
+                        echo '<p class="card-text">Đã thanh toán ngày ' . $hd1['NgayThanhToan'] . '</p>';
+                        if ($hd1['MaGiaoDich']) echo '<p class="card-text">Mã giao dịch: ' . $hd1['MaGiaoDich'] . '</p>';
+                    } else
+                        echo '<button type="button" class="btn waves-effect waves-light btn-success" onclick="XacNhanThanhToan(\'' . $hd1['MaHoaDon'] . '\')">Xác nhận thanh toán</button>';
+                    ?>
                 </div>
             </div>
         </div>
@@ -57,8 +77,13 @@ $hd2 = $cthd['data'][1];
                     <hr width="90%" color="gray" align="center">
                     <h4 class=" card-title"><?php echo $hd2['GhiChu']; ?></h4>
                     <p class="card-text">Số tiền: <?php echo formatPrice($hd2['SoTien']); ?> đ</p>
-                    <button type="button" class="btn waves-effect waves-light btn-danger">HỦY</button>
-                    <button type="button" class="btn waves-effect waves-light btn-success">Đã thanh toán</button>
+                    <?php
+                    if ($hd2['NgayThanhToan']) {
+                        echo '<p class="card-text">Đã thanh toán ngày ' . $hd2['NgayThanhToan'] . '</p>';
+                        if ($hd2['MaGiaoDich'])  echo '<p class="card-text">Mã giao dịch: ' . $hd2['MaGiaoDich'] . '</p>';
+                    } else
+                        echo '<button type="button" class="btn waves-effect waves-light btn-success" onclick="XacNhanThanhToan(\'' . $hd2['MaHoaDon'] . '\')">Xác nhận thanh toán</button>';
+                    ?>
                 </div>
             </div>
         </div>
