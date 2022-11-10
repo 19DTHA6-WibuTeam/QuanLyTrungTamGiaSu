@@ -145,7 +145,7 @@
             <?php } else { ?>
               <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachKhoaHoc.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Đăng ký lịch dạy</span></a></li>
             <?php } ?>
-            <li class="sidebar-item"> <a class="sidebar-link" href="KhoaHocDangKy.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Khoá học đã đăng ký</span></a></li>
+            <li class="sidebar-item"> <a class="sidebar-link" href="KhoaHocDangKy.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu"><?php echo getSESSION('LaGiaSu') ? 'Lịch dạy' : 'Khoá học'; ?> đã đăng ký</span></a></li>
             <li class="sidebar-item"> <a class="sidebar-link" href="ThoiKhoaBieu.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Thời khoá biểu</span></a></li>
             <li class="list-divider"></li>
             <li class="nav-small-cap"><span class="hide-menu">Thanh toán</span></li>
