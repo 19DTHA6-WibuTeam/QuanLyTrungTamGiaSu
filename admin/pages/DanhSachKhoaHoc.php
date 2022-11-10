@@ -118,7 +118,7 @@ $list = json_decode($list, true);
                                     $TongTien = $v['SoTien'] * $v['SoTuan'] * count(explode(',', $ThoiKhoaBieu_TomTat['MaThu']));
                                     echo '<tr>
                                             <td>' . $v['MaKhoaHoc'] . '</td>
-                                            <td><a href="ChiTietNguoiDung.html?MaNguoiDung=' . $v['MaKhoaHoc'] . '" class="font-weight-medium link">' . $v['HoTen'] . '</a></td>
+                                            <td><a href="ChiTietNguoiDung.html?MaNguoiDung=' . $v['MaHocSinh'] . '" class="font-weight-medium link">' . $v['HoTen'] . '</a></td>
                                             <td>' . $v['DiaChi'] . '</td>
                                             <td>' . $v['SDT'] . '</td>
                                             <td>' . $v['NgayDangKy'] . '</td>
@@ -133,6 +133,7 @@ $list = json_decode($list, true);
                                                     <button type="button" class="btn btn-info dropdown-toggle"
                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thêm</button>
                                                     <div class="dropdown-menu">
+                                                        ' . ($v['TinhTrang'] >= 2 ? '<a class="dropdown-item" href="ChiTietNguoiDung.html?MaNguoiDung=' . $v['MaGiaSu'] . '">Xem gia sư</a>' : '') . '
                                                         ' . ($v['TinhTrang'] >= 2 ? '<a class="dropdown-item" href="HoaDon.html?MaKhoaHoc=' . $v['MaKhoaHoc'] . '">Xem hoá đơn</a>' : '') . '
                                                         ' . ($v['TinhTrang'] == 2 ? '<a class="dropdown-item" href="javascript:" onclick="HuyLichDay(\'' . $v['MaKhoaHoc'] . '\')">Huỷ lịch dạy</a>' : '') . '
                                                         ' . ($v['TinhTrang'] == 1 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'bỏ duyệt\')">Bỏ duyệt</a>' : '') . '

@@ -26,10 +26,8 @@ include 'views/header.php';
                 <div class="about-intro">
                     <div class="sec-title">
                         <div class="sub-title orange">About Us</div>
-                        <h2 class="title mb-21">The End Result of All True Learning</h2>
-                        <div class="desc big">The key to success is to appreciate how people learn, understand
-                            the thought process that goes into instructional design, what works well, and a
-                            range of differen</div>
+                        <h2 class="title mb-21">Trung tâm gia sư WibuEdu</h2>
+                        <div class="desc big">Chìa khóa để thành công là đánh giá cao cách mọi người học hỏi.</div>
                     </div>
                 </div>
             </div>
@@ -39,21 +37,21 @@ include 'views/header.php';
                         <div class="counter-item one">
                             <img class="count-img" src="assets/images/about/style3/icons/1.png" alt="">
                             <h2 class="number rs-count kplus">2</h2>
-                            <h4 class="title mb-0">Students</h4>
+                            <h4 class="title mb-0">Học sinh</h4>
                         </div>
                     </div>
                     <div class="col-md-4 sm-mb-30">
                         <div class="counter-item two">
                             <img class="count-img" src="assets/images/about/style3/icons/2.png" alt="">
                             <h2 class="number rs-count">3.50</h2>
-                            <h4 class="title mb-0">Average CGPA</h4>
+                            <h4 class="title mb-0">CGPA Trung bình</h4>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="counter-item three">
                             <img class="count-img" src="assets/images/about/style3/icons/3.png" alt="">
                             <h2 class="number rs-count percent">95</h2>
-                            <h4 class="title mb-0">Graduates</h4>
+                            <h4 class="title mb-0">Chất lượng</h4>
                         </div>
                     </div>
                 </div>

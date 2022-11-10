@@ -321,7 +321,7 @@ class HoaDon
 
   public function getById($MaHoaDon, $returnUrl = '')
   {
-    return $this->curl->get(API_URL . '/HoaDon/' . $MaHoaDon . '?returnUrl=' . $returnUrl);
+    return $this->curl->get(API_URL . '/HoaDon/' . $MaHoaDon . '?returnUrl=' . $returnUrl . '&ip=' . get_client_ip());
   }
 
   public function getByUserId($MaNguoiDung)

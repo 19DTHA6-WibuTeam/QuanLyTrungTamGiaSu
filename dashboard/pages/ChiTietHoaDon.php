@@ -12,7 +12,7 @@ if ($_GET) {
 }
 if ($isVnp) {
     $XacNhanThanhToan =  $HoaDon->XacNhanThanhToan(getGET('MaHoaDon'), http_build_query($vnp));
-    var_dump($XacNhanThanhToan);
+    // var_dump($XacNhanThanhToan);
 }
 // var_dump(http_build_query($vnp));
 
@@ -132,11 +132,11 @@ if ($cthd['MaNguoiDung'] != getSESSION('MaNguoiDung')) echo '<script>window.loca
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?php echo $cthd['MaKhoaHoc']; ?></td>
-                        <td><?php echo $cthd['TenMonHoc']; ?></td>
-                        <td><?php echo formatPrice($cthd['SoTienMotBuoi']); ?> đ</td>
-                        <td><?php echo $cthd['SoBuoi']; ?></td>
-                        <td><?php echo $cthd['SoTuan']; ?></td>
+                        <td><?php echo $cthd['KhoaHoc']['MaKhoaHoc']; ?></td>
+                        <td><?php echo $cthd['KhoaHoc']['TenMonHoc']; ?></td>
+                        <td><?php echo formatPrice($cthd['KhoaHoc']['SoTien']); ?> đ</td>
+                        <td><?php echo count(explode(',', $cthd['KhoaHoc']['ThoiKhoaBieu_TomTat']['MaThu'])); ?></td>
+                        <td><?php echo $cthd['KhoaHoc']['SoTuan']; ?></td>
                         <td><?php echo formatPrice($cthd['SoTien']); ?> đ</td>
                     </tr>
                     <!-- <tr>

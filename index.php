@@ -66,7 +66,7 @@ include 'views/header.php';
                             <div class="sec-title3 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="2000ms">
                                 <div class="sub-title">About Me</div>
                                 <h2 class="title">WibuEdu</h2>
-                                <div class="desc mb-30">Lorem ipsum dolor sit amet, consectetur adipisic ing elit, sed eius to mod tempors incididunt ut labore etdo ldore magna this aliqua enims ad minim.Lorem ipsum dolor sit amet, consecte tur adipisic ing elit, sed eius to mod tem incididunt demo data.</div>
+                                <div class="desc mb-30">Trung tâm tìm kiếm gia sư, dạy kèm 1-1, đăng ký tự do, quản lý lịch biểu chặt chẽ.</div>
                                 <!-- <div class="btn-part wow fadeInUp" data-wow-delay="400ms" data-wow-duration="2000ms">
                                     <a class="readon orange-btn" href="#">Read More</a>
                                 </div> -->

@@ -111,7 +111,7 @@
                 <span class="ml-2 d-none d-lg-inline-block"><span>Xin chào,</span> <span class="text-dark"><?php echo getSESSION('HoTen'); ?></span> <i data-feather="chevron-down" class="svg-icon"></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>My Profile</a>
+                <a class="dropdown-item" href="TrangCaNhan.html"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>Trang cá nhân</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="logout.html"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>Đăng xuất</a>
               </div>
@@ -143,7 +143,7 @@
             <?php if (!getSESSION('LaGiaSu')) { ?>
               <li class="sidebar-item"> <a class="sidebar-link" href="DangKyKhoaHoc.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Đăng ký khoá học</span></a></li>
             <?php } else { ?>
-              <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachKhoaHoc.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Đăng ký khoá học</span></a></li>
+              <li class="sidebar-item"> <a class="sidebar-link" href="DanhSachKhoaHoc.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Đăng ký lịch dạy</span></a></li>
             <?php } ?>
             <li class="sidebar-item"> <a class="sidebar-link" href="KhoaHocDangKy.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Khoá học đã đăng ký</span></a></li>
             <li class="sidebar-item"> <a class="sidebar-link" href="ThoiKhoaBieu.html" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Thời khoá biểu</span></a></li>

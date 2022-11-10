@@ -97,7 +97,9 @@ if ($LaGiaSu) {
                             </tbody>
                         </table>
                     </div>
-                    <button class="btn btn-primary" onclick="DangKyGiaSu('<?php echo $MaNguoiDung; ?>')">Đăng ký gia sư</button>
+                    <?php if ($LaGiaSu == 0) { ?>
+                        <button class="btn btn-primary" onclick="DangKyGiaSu('<?php echo $MaNguoiDung; ?>')">Đăng ký gia sư</button>
+                    <?php } ?>
                 </div>
             </div>
         </div>
