@@ -86,7 +86,7 @@
        $.ajax({
          type: "POST",
          headers: {
-           'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+           'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
          },
          url: "<?php echo API_URL; ?>/KhoaHoc/TinhTrang/" + MaKhoaHoc,
          success: function(result) {
@@ -116,7 +116,7 @@
        $.ajax({
          type: "DELETE",
          headers: {
-           'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+           'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
          },
          url: "<?php echo API_URL; ?>/KhoaHoc/" + MaKhoaHoc,
          success: function(result) {
@@ -141,7 +141,7 @@
        $.ajax({
          type: "DELETE",
          headers: {
-           'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+           'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
          },
          url: "<?php echo API_URL; ?>/KhoaHoc/GiangDay/" + MaKhoaHoc,
          success: function(result) {
@@ -171,7 +171,7 @@
        $.ajax({
          type: "DELETE",
          headers: {
-           'Authorization': 'Bearer <?php echo getSESSION('token'); ?>'
+           'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
          },
          url: "<?php echo API_URL; ?>/ChuyenMon/" + MaChuyenMon,
          success: function(result) {
