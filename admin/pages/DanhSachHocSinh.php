@@ -1,9 +1,44 @@
 <?php
 $NguoiDung = new NguoiDung();
-$list = $NguoiDung->getList('0');
+if (getGET('HoTen') || getGET('SDT'))
+    $list = $NguoiDung->getList('0', getGET('HoTen'), getGET('SDT'));
+else
+    $list = $NguoiDung->getList('0');
 $list = json_decode($list, true);
 ?>
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tìm kiếm</h4>
+                    <form method="GET" action="">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group mb-4">
+                                        <label for="HoTen">Theo họ tên</label>
+                                        <input type="text" class="form-control" id="HoTen" name="HoTen" value="<?php echo htmlentities(getGET('HoTen')); ?>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mb-4">
+                                        <label for="HoTen">Theo SDT</label>
+                                        <input type="text" class="form-control" id="SDT" name="SDT" value="<?php echo htmlentities(getGET('SDT')); ?>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-info">Tìm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">

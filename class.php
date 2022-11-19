@@ -212,9 +212,10 @@ class NguoiDung
     return $this->curl->post(API_URL . '/NguoiDung/register', $body);
   }
 
-  public function getList($LaGiaSu = null)
+  public function getList($LaGiaSu = null, $HoTen = '', $SDT = '')
   {
-    return $this->curl->get(API_URL . '/NguoiDung' . ($LaGiaSu != null ? '?LaGiaSu=' . $LaGiaSu : ''));
+    $search = 'HoTen=' . $HoTen . '&SDT=' . $SDT;
+    return $this->curl->get(API_URL . '/NguoiDung' . ($LaGiaSu != null ? '?LaGiaSu=' . $LaGiaSu . '&' : '?') . $search);
   }
 
   public function getProfile($MaNguoiDung)
@@ -277,9 +278,9 @@ class KhoaHoc
     return $this->curl->get(API_URL . '/KhoaHoc/' . $MaKhoaHoc);
   }
 
-  public function getKhoaHocAll()
+  public function getKhoaHocAll($pn = 1, $HoTen = '', $SDT = '', $TinhTrang = '', $orderby_ID = 'DESC')
   {
-    return $this->curl->get(API_URL . '/KhoaHoc');
+    return $this->curl->get(API_URL . '/KhoaHoc?HoTen=' . $HoTen . '&SDT=' . $SDT . '&TinhTrang=' . $TinhTrang . '&orderby_ID=' . $orderby_ID . '&pn=' . $pn);
   }
 
   public function getKhoaHocByKeyValue($k, $v)

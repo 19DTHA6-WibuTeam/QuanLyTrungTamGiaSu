@@ -35,6 +35,16 @@
      window.history.replaceState(null, null, window.location.href);
    }
 
+   function redirectParams(name, value) {
+     var url = new URL(window.location.href);
+     url.searchParams.set(name, value);
+     window.location.href = url.href;
+   }
+
+   function pagination(num) {
+     redirectParams('pn', num);
+   }
+
    function showNotify(key) {
      switch (key) {
        case 'no-edit':
