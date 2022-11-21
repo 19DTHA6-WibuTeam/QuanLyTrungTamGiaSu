@@ -1,9 +1,9 @@
 <?php
 $KhoaHoc = new KhoaHoc();
-if (getGET('HoTen') || getGET('SDT') || getGET('TinhTrang') || getGET('orderby_ID'))
-    $list = $KhoaHoc->getKhoaHocAll(getGET('pn'), getGET('HoTen'), getGET('SDT'), getGET('TinhTrang'), getGET('orderby_ID'));
-else
-    $list = $KhoaHoc->getKhoaHocAll(getGET('pn'));
+// if (getGET('HoTen') || getGET('SDT') || !empty($_GET['TinhTrang']) || getGET('orderby_ID'))
+$list = $KhoaHoc->getKhoaHocAll(getGET('pn'), getGET('HoTen'), getGET('SDT'), getGET('TinhTrang'), getGET('orderby_ID'));
+// else
+//     $list = $KhoaHoc->getKhoaHocAll(getGET('pn'));
 $list = json_decode($list, true);
 // $list = $list['data'];
 
@@ -16,8 +16,9 @@ $tk = json_decode($ThongKe->getSummary(), true)['data'];
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="MKH_change">Bạn có muốn <span id="status-change"></span> khoá học này?</label>
+                    <label for="MKH_change">Bạn có muốn thay đổi tình trạng khoá học này?</label>
                     <input class="form-control" type="hidden" id="MKH_change" value="" />
+                    <input class="form-control" type="hidden" id="TinhTrang_change" value="" />
                 </div>
                 <div class=" form-group text-center">
                     <button class="btn btn-primary" onclick="ThayDoiTinhTrangKhoaHoc(0, null, true)">Thay đổi</button>
@@ -198,8 +199,9 @@ $tk = json_decode($ThongKe->getSummary(), true)['data'];
                                                         ' . ($v['TinhTrang'] >= 2 ? '<a class="dropdown-item" href="ChiTietNguoiDung.html?MaNguoiDung=' . $v['MaGiaSu'] . '">Xem gia sư</a>' : '') . '
                                                         ' . ($v['TinhTrang'] >= 2 ? '<a class="dropdown-item" href="HoaDon.html?MaKhoaHoc=' . $v['MaKhoaHoc'] . '">Xem hoá đơn</a>' : '') . '
                                                         ' . ($v['TinhTrang'] == 2 ? '<a class="dropdown-item" href="javascript:" onclick="HuyLichDay(\'' . $v['MaKhoaHoc'] . '\')">Huỷ lịch dạy</a>' : '') . '
-                                                        ' . ($v['TinhTrang'] == 1 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'bỏ duyệt\')">Bỏ duyệt</a>' : '') . '
-                                                        ' . ($v['TinhTrang'] == 0 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'duyệt\')">Duyệt</a><a class="dropdown-item" href="javascript:" onclick="XoaKhoaHoc(\'' . $v['MaKhoaHoc'] . '\')">Xoá</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 2 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'3\')">Hoàn thành khoá học</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 1 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'0\')">Bỏ duyệt</a>' : '') . '
+                                                        ' . ($v['TinhTrang'] == 0 ? '<a class="dropdown-item" href="javascript:" onclick="ThayDoiTinhTrangKhoaHoc(\'' . $v['MaKhoaHoc'] . '\', \'1\')">Duyệt</a><a class="dropdown-item" href="javascript:" onclick="XoaKhoaHoc(\'' . $v['MaKhoaHoc'] . '\')">Xoá</a>' : '') . '
                                                     </div>
                                                 </div>
                                             </td>

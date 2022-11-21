@@ -98,6 +98,7 @@
          headers: {
            'Authorization': 'Bearer <?php echo getSESSION('admin_token'); ?>'
          },
+         data: 'TinhTrang=' + $('#TinhTrang_change').val(),
          url: "<?php echo API_URL; ?>/KhoaHoc/TinhTrang/" + MaKhoaHoc,
          success: function(result) {
            if (result.success) {
@@ -106,15 +107,13 @@
                window.location.reload();
              }, 5000);
            } else {
-             status = $('#status-change').text();
-             if (!status) status = 'thay đổi';
-             $.notify("Không thể " + status + " khoá học!", "error");
+             $.notify("Không thể thay đổi tình trạng khoá học!", "error");
            }
          }
        });
      } else {
        $('#MKH_change').val(MaKhoaHoc);
-       $('#status-change').text(status);
+       $('#TinhTrang_change').val(status);
        $('#confirm-change-modal').modal('show');
      }
    }
