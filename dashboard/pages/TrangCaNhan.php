@@ -10,9 +10,13 @@ else {
     $MaNguoiDung = getSESSION('MaNguoiDung');
     if ($_POST) {
         if (getPOST('submit') == 'profile') {
-            $file = $_FILES['Avatar'];
-            if ($file['size'] > 0) {
-                $_POST['avatar'] = curl_file_create($file['tmp_name'], $file['type']);
+            $file_avatar = $_FILES['Avatar'];
+            if ($file_avatar['size'] > 0) {
+                $_POST['avatar'] = curl_file_create($file_avatar['tmp_name'], $file_avatar['type']);
+            }
+            $file_id_card = $_FILES['id_card'];
+            if ($file_id_card['size'] > 0) {
+                $_POST['id_card'] = curl_file_create($file_id_card['tmp_name'], $file_id_card['type']);
             }
             $data = $NguoiDung->updateProfile(getSESSION('MaNguoiDung'), $_POST);
             $data = json_decode($data, true);
@@ -33,7 +37,7 @@ $profile = $NguoiDung->getProfile($MaNguoiDung);
 $profile = json_decode($profile, true);
 if (getGET('MaNguoiDung') && $profile['success'] == false) echo '<script>window.location.href = "TrangCaNhan.html"</script>';
 $profile = $profile['data'];
-['HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap, 'LaGiaSu' => $LaGiaSu] = $profile;
+['HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap, 'LaGiaSu' => $LaGiaSu, 'id_card' => $id_card] = $profile;
 if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
 ?>
 <style>
@@ -75,7 +79,7 @@ if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="fullWidthModalLabel">Title.</h4>
+                <h4 class="modal-title" id="fullWidthModalLabel">Thông tin</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
@@ -238,6 +242,35 @@ if (!getGET('MaNguoiDung')) $NguoiDung->updateSession($profile);
                                                         <input type="text" class="form-control" id="DiaChi" name="DiaChi" value="<?php echo $DiaChi; ?>" required />
                                                     </div>
                                                 </div>
+                                                <?php if ($LaGiaSu) { ?>
+                                                    <div class="col-md-6">
+                                                        <fieldset class="form-group">
+                                                            <label class="labels">Upload mặt trước CCCD (xác nhận danh tính)</label>
+                                                            <input type="file" class="form-control-file" id="Avatar" name="id_card" />
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <code>
+                                                            <?php
+                                                            if ($id_card) {
+                                                                try {
+                                                                    $info_id_card = json_decode($id_card, true);
+                                                                    echo 'Link ảnh: ' . $info_id_card['image'] . '</br>';
+                                                                    $info_id_card = $info_id_card['data'];
+                                                                    echo 'ID: ' . $info_id_card['id'] . '</br>';
+                                                                    echo 'Họ tên: ' . $info_id_card['name'] . '</br>';
+                                                                    echo 'Ngày sinh: ' . $info_id_card['birth_date'] . '</br>';
+                                                                    echo 'Giới tính: ' . $info_id_card['gender'] . '</br>';
+                                                                    echo 'Địa chỉ: ' . $info_id_card['address'] . '</br>';
+                                                                    echo 'Quên quán: ' . $info_id_card['place_birth'] . '</br>';
+                                                                    echo 'Ngày hết hạn: ' . $info_id_card['date_expire'] . '</br>';
+                                                                } catch (\Throwable $th) {
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </code>
+                                                    </div>
+                                                <?php } ?>
                                             </div>
                                             <div class="mt-5 text-center">
                                                 <button class="btn btn-primary profile-button" type="submit" name="submit" value="profile">Lưu</button>

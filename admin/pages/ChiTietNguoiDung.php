@@ -2,7 +2,7 @@
 $NguoiDung = new NguoiDung();
 $profile = $NguoiDung->getProfile(getGET('MaNguoiDung'));
 $profile = json_decode($profile, true);
-['MaNguoiDung' => $MaNguoiDung, 'HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap, 'LaGiaSu' => $LaGiaSu] = $profile['data'];
+['MaNguoiDung' => $MaNguoiDung, 'HoTen' => $HoTen, 'NgaySinh' => $NgaySinh, 'GioiTinh' => $GioiTinh, 'DiaChi' => $DiaChi, 'Avatar' => $Avatar, 'SDT' => $SDT, 'Email' => $Email, 'TenDangNhap' => $TenDangNhap, 'LaGiaSu' => $LaGiaSu, 'id_card' => $id_card] = $profile['data'];
 
 $cm = [];
 if ($LaGiaSu) {
@@ -14,7 +14,7 @@ if ($LaGiaSu) {
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="fullWidthModalLabel">Title.</h4>
+                <h4 class="modal-title" id="fullWidthModalLabel">Thông tin</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
@@ -107,6 +107,61 @@ if ($LaGiaSu) {
     <?php
     if ($LaGiaSu) {
     ?>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Thông tin căn cước</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped mb-0">
+                                <tbody>
+                                    <?php
+                                    try {
+                                        $info_id_card = json_decode($id_card, true);
+                                        $image_id_card = $info_id_card['image'];
+                                        $info_id_card = $info_id_card['data'];
+                                        echo '<tr>
+                                                <th class="text-nowrap" scope="row">Link ảnh</th>
+                                                <td colspan="5">' . $image_id_card . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">ID</th>
+                                                <td colspan="5">' . $info_id_card['id'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Họ tên</th>
+                                                <td colspan="5">' . $info_id_card['name'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Ngày sinh</th>
+                                                <td colspan="5">' . $info_id_card['birth_date'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Giới tính</th>
+                                                <td colspan="5">' . $info_id_card['gender'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Địa chỉ</th>
+                                                <td colspan="5">' . $info_id_card['address'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Quê quán</th>
+                                                <td colspan="5">' . $info_id_card['place_birth'] . '</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap" scope="row">Ngày hết hạn</th>
+                                                <td colspan="5">' . $info_id_card['date_expire'] . '</td>
+                                            </tr>';
+                                    } catch (\Throwable $th) {
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
